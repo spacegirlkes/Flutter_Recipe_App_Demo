@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
+import 'recipe.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const RecipeApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class RecipeApp extends StatelessWidget {
+  const RecipeApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
+  // 1
   @override
   Widget build(BuildContext context) {
+    // #1 A widget’s build() method is the entry point for composing together other widgets to make a new widget.
+    // 2
+    final ThemeData theme =
+        ThemeData(); // #2 A theme determines visual aspects like color. The default ThemeData will show the standard Material defaults
+    // 3
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+      // #3 MaterialApp uses Material Design and is the widget that will be included in RecipeApp.
+      // 4
+      title:
+          'Recipe Calculator', // #4 The title of the app is a description that the device uses to identify the app. The UI won’t display this.
+      // 5
+      theme: theme.copyWith(
+        // #5 By copying the theme and replacing the color scheme with an updated copy lets you change the app’s colors. Here, the primary color is Colors.grey and the secondary color is Colors.black.
+        colorScheme: theme.colorScheme.copyWith(
+          primary: Colors.grey,
+          secondary: Colors.black,
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // 6
+      home: const MyHomePage(
+          title:
+              'Recipe Calculator'), // #6 This still uses the same MyHomePage widget as before, but now, you’ve updated the title and displayed it on the device.
     );
   }
 }
@@ -48,68 +57,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    //1 - A Scaffold provides the high-level structure for a screen. In this case, you’re using two properties.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        //2 - AppBar gets a title property by using a Text widget that has a title passed in from home: MyHomePage(title: 'Recipe Calculator') in the previous step
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
+        //3 - body has SafeArea, which keeps the app from getting too close to the operating system interfaces such as the notch or interactive areas like the Home Indicator at the bottom of some iOS screens.
+        body: SafeArea(
+          // TODO: Replace child: Container()
+          //4 - SafeArea has a child widget, which is an empty Container widget.
+          child: Container(),
+        ));
+  } // TODO: Add buildRecipeCard() here
+
 }
