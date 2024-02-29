@@ -2,7 +2,7 @@ repo_name: spacegirlkes/Flutter_Recipe_App_Demo
 report_id: 13ee166e54b67cc67bb329ca678ac4d6
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T09:14:19+00:00'
+timestamp: '2024-02-29T18:15:42+00:00'
 requested_by: spacegirlkes
 provider: github
 branch: main
@@ -62,7 +62,7 @@ tools:
   detection_source_url: https://github.com/spacegirlkes/Flutter_Recipe_App_Demo
   detection_source: Repo Metadata
 - name: Swift
-  description: 'An innovative new programming language for Cocoa and Cocoa Touch. '
+  description: An innovative new programming language for Cocoa and Cocoa Touch.
   website_url: https://developer.apple.com/swift/
   license: Apache-2.0
   open_source: true
@@ -100,7 +100,7 @@ tools:
   last_updated_by: spacegirlkes
   last_updated_on: 2021-10-31 12:41:51.000000000 Z
 - name: CMake
-  description: 'An open-source system that manages the build process '
+  description: An open-source system that manages the build process
   website_url: http://www.cmake.org/
   open_source: false
   hosted_saas: false
